@@ -1,0 +1,57 @@
+/* 1. Fontes do Google (sempre ANTES do import do Tailwind) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap");
+
+/* 2. Tailwind */
+@import "tailwindcss";
+
+/* 3. Tokens do design Dark Split */
+@theme {
+  /* Fontes: sobrescrevem as padrão, então valem sem precisar de classe */
+  --font-sans: "Inter", system-ui, "Segoe UI", sans-serif;          /* texto geral */
+  --font-mono: "Fira Code", ui-monospace, Consolas, monospace;      /* código e badges: font-mono */
+
+  /* Fundos */
+  --color-fundo: #0f172a;       /* slate-900 | página:            bg-fundo */
+  --color-superficie: #1e293b;  /* slate-800 | cards:             bg-superficie/40, hover:bg-superficie/70 */
+  --color-profundo: #020617;    /* slate-950 | blocos de código:  bg-profundo/80 */
+
+  /* Texto */
+  --color-titulo: #f8fafc;      /* slate-50  | títulos:           text-titulo */
+  --color-corpo: #cbd5e1;       /* slate-300 | texto principal:   text-corpo */
+  --color-suave: #94a3b8;       /* slate-400 | texto secundário:  text-suave */
+  --color-sutil: #64748b;       /* slate-500 | datas, metadados:  text-sutil */
+
+  /* Bordas */
+  --color-borda: #1e293b;       /* slate-800 | padrão:            border-borda */
+  --color-borda-forte: #334155; /* slate-700 | divisores:         border-borda-forte */
+
+  /* Destaque (verde esmeralda) */
+  --color-destaque: #10b981;        /* emerald-500 | botões, badges:  bg-destaque, bg-destaque/10, border-destaque/30 */
+  --color-destaque-hover: #34d399;  /* emerald-400 | hover, link ativo: hover:text-destaque-hover */
+  --color-destaque-claro: #6ee7b7;  /* emerald-300 | texto em badge:  text-destaque-claro */
+}
+
+/* 4. Estilos base: valem para o site inteiro */
+@layer base {
+  html {
+    scroll-behavior: smooth;                  /* rolagem suave nos links do menu */
+    scrollbar-color: #1e293b #0f172a;         /* barra de rolagem escura (cor da barra, cor do trilho) */
+  }
+
+  body {
+    @apply bg-fundo text-corpo font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply text-titulo;
+  }
+
+  ::selection {
+    @apply bg-destaque text-profundo;         /* texto selecionado com o mouse */
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-destaque; /* foco visível para quem navega pelo teclado */
+  }
+}

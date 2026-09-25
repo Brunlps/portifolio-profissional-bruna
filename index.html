@@ -4,12 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="src/input.css">
+    <style type="text/tailwindcss">
+        
+    @theme {
+  
+  --font-sans: "Inter", system-ui, "Segoe UI", sans-serif;  
+ --font-mono: "Fira Code", ui-monospace, Consolas, monospace;
+ /* Fundos */
+ --color-fundo: #0f172a;              
+ --color-superficie: #1e293b;          
+ --color-profundo: #020617; 
+
+/* Texto */
+ --color-titulo: #f8fafc;
+ --color-corpo: #cbd5e1;
+ --color-suave: #94a3b8;
+ --color-sutil: #64748b; 
+
+ /* Bordas */
+ --color-borda: #1e293b; 
+ --color-borda-forte: #334155;
+
+ /* Destaque (verde esmeralda) */ 
+ --color-destaque: #10b981;
+ --color-destaque-hover: #34d399;
+ --color-destaque-claro: #6ee7b7;
+}
+    </style>
     <title>Bruna | Portifólio</title>
   </head>
-  <body class="bg-gray-900 text-white">
-    <header class="">
-      <nav class="flex justify-between items-center">
-        <div class="logo">
+  <body class="md:flex bg-fundo">
+    <aside class="bg-lateral md:w-64 md:h-screen md:sticky md:top-0">
+
+    </aside>
+    <header class="text-white">
+      <nav class="">
+        <div class="">
           <h1 class="">Bruna Lopes</h1>
         </div>
 
@@ -28,7 +59,7 @@
 
     <main>
       <section id="about">
-        <div class="">
+        <div class="text-white">
           <h2>Sobre</h2>
           <p>
             Sou Bruna, desenvolvedora em início de carreira e estudante de
@@ -50,7 +81,7 @@
           </p>
         </div>
 
-        <div class="sobre-img-card">
+        <div class="sobre-img-card text-white">
           <div class="card-inner">
             <div class="card-front">
               <img src="assets/logo.jpg" alt="primeira-imagem" />
@@ -65,7 +96,7 @@
         </div>
       </section>
 
-      <section id="projects">
+      <section class="text-white" id="projects">
         <h3>Projetos</h3>
         <div class="cards">
           <article class="card">
@@ -84,7 +115,7 @@
         </div>
       </section>
       <footer>
-        <h6>Contatos</h6>
+        <h6 class="text-white">Contatos</h6>
       </footer>
     </main>
   </body>
