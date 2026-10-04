@@ -1,59 +1,70 @@
-# Portfólio da Bruna — instruções para o agente
+Você vai construir meu site de portfólio pessoal (Bruna Lopes, programadora backend)
+seguindo o design que estou enviando em anexo. Trabalhe no repositório atual do
+portfólio, aproveitando o que já existe e mantendo a semântica que já foi corrigida
+(títulos em ordem, footer fora do main, lista de contatos).
 
-## Quem sou eu
-- Bruna, desenvolvedora backend júnior (Python/FastAPI, Java/Spring Boot), estudante de ADS.
-- Iniciante em frontend: sei HTML, o básico de CSS e Flexbox, e estou aprendendo Tailwind.
-- Uso Windows e VS Code com Live Server.
-- Lacunas conhecidas: box-sizing, justify-content × align-items, querySelector × querySelectorAll, uso correto do atributo alt.
+OBJETIVO
+Uma página única, estática, fiel ao design, que abra rápido para um recrutador.
 
-## Seu papel: MENTOR, não autor
-- NÃO escreva o código por mim. Explique o conceito, diga o que preciso fazer e deixe que eu escreva.
-- Pode mostrar exemplos pequenos (2 a 5 linhas) para ilustrar um conceito, mas nunca a solução completa da tarefa.
-- Antes de cada classe ou técnica nova do Tailwind, explique o CSS que ela gera. Quero aprender os dois juntos.
-- Depois que eu escrever, revise meu código: aponte erros, pergunte o porquê das minhas escolhas e faça 1 pergunta de verificação (ex.: "qual propriedade aparece no DevTools?").
-- Só edite arquivos se eu pedir explicitamente.
-- Eu me perco quando abro muitos materiais: indique no máximo 1 link de documentação por tarefa.
-- Uma tarefa por vez. Só passe para a próxima quando eu confirmar que terminei.
+LAYOUT (igual ao design)
+- Lateral esquerda: foto de perfil redonda, nome, "Programadora · Backend",
+  "Fortaleza, CE" e menu com âncoras (Sobre, Stack, Projetos, Contatos).
+- Conteúdo à direita, nesta ordem: Sobre (caixa de destaque), Stack (círculos),
+  Projetos (3 cards com imagem, título, descrição e tecnologias), Contatos e redes
+  sociais (e-mail, LinkedIn, GitHub com ícones redondos).
+- Responsivo: no celular a lateral vai para o topo e as seções empilham.
+- Cores base: fundo #0f172a, lateral #0b1120, cartões #1e293b, bordas #334155,
+  texto #e2e8f0, texto secundário #94a3b8, destaque #34d399.
+- Fontes: IBM Plex Sans (texto) e IBM Plex Mono (rótulos e tecnologias).
 
-## O projeto
-- Site de portfólio para recrutadores, uma página só, publicado no GitHub Pages.
-- Stack: HTML + Tailwind CSS v4 via CDN (@tailwindcss/browser@4). Sem framework JS.
-- Tema e cores personalizadas via @theme dentro de <style type="text/tailwindcss">.
-- Na etapa de publicar, migrar do CDN para a Tailwind CLI (o CDN não é para produção).
+STACK PREPARADA PARA CRESCER
+- Hoje são 3 itens (Python/FastAPI, Java/Spring Boot, MySQL/Docker), mas vou
+  adicionar mais.
+- Cada item deve ser um único bloco de HTML repetível (um <li> dentro de uma <ul>).
+- Use um grid que se ajusta sozinho (auto-fill com largura mínima), para que
+  adicionar um item seja só copiar e colar um bloco, sem mexer em CSS nem em JS.
+- Deixe um comentário no HTML mostrando onde e como adicionar um novo item.
 
-## Design de referência
-- Protótipo gerado no Gemini: referencia/prototipo.html
-- Variação escolhida: [PREENCHER: Dark Split / Light Editorial / Dark Terminal]
-- ATENÇÃO: o protótipo usa Tailwind v3 (cdn.tailwindcss.com + tailwind.config em <script>). Eu uso v4. Sempre que eu for aproveitar algo do protótipo, avise o que muda do v3 para o v4 (principalmente a configuração de tema e fontes).
-- O protótipo é referência visual. Eu reescrevo tudo, não copio.
-- Partes do protótipo que NÃO entram no site final: a barra de troca de variações e os botões "Imprimir esta seção".
+BOTÃO DE TEMA
+- Adicione um botão acessível (um <button> de verdade, com aria-label) que troca
+  a cor de destaque do site entre: verde #34d399, azul #38bdf8, âmbar #fbbf24 e
+  rosa #f472b6.
+- Implemente com variáveis CSS e um atributo data-theme no <html>, de modo que
+  cada tema seja um conjunto de variáveis. Assim dá para criar um tema claro
+  depois sem refazer nada.
+- Salve a escolha no localStorage (com try/catch) e aplique antes da página
+  pintar, para não piscar a cor errada.
+- Todas as cores de destaque do site devem vir da variável, nunca fixas.
 
-## Conteúdo: nunca invente
-- O protótipo tem informações inventadas pela IA. Não reaproveite textos dele sem conferir comigo.
-- GeraFinance (Python/FastAPI): banco MySQL (não PostgreSQL). Destaques reais: JWT RS256 com rotação e blacklist de refresh token, 2FA por TOTP, senhas com Argon2id, rate limiting no login, alertas assíncronos com Celery + Redis, 67 testes automatizados, CI no GitHub Actions, Docker Compose, frontend React integrado à API.
-- FoxFit (Java/Spring Boot): pergunte-me ou leia o repositório antes de escrever qualquer destaque.
-- "Estudando agora": pergunte-me. Não sugira tecnologias que eu não estudo.
-- Nada de exageros sem medição ("alta performance", "alta concorrência").
+DEPENDÊNCIAS
+- Nenhuma dependência em tempo de execução: sem framework, sem biblioteca de
+  ícones, sem jQuery.
+- Troque o Tailwind por CDN pelo build com a CLI do Tailwind (dependência de
+  desenvolvimento), gerando um único CSS minificado só com as classes usadas.
+  Use a versão estável atual e confira a documentação oficial antes de instalar.
+- Crie os scripts no package.json: "dev" (watch) e "build" (minificado).
+- Mantenha node_modules no .gitignore.
+- Ícones: SVG inline. JavaScript: um arquivo pequeno, vanilla, com defer.
 
-## Boas práticas que quero seguir
-- HTML semântico e hierarquia de títulos correta (h1 → h2 → h3).
-- Acessibilidade: alt descritivo, contraste adequado, links com texto claro.
-- Mobile-first e sem larguras fixas em px para layout.
-- Commits pequenos, em português, no padrão Conventional Commits (feat:, fix:, style:, chore:, docs:).
-- README do repositório caprichado no final.
+DESEMPENHO
+- Fontes: carregue só os pesos usados (400, 500, 600, 700 da Sans; 400 e 500 da
+  Mono), com font-display: swap e preconnect; se possível, hospede os .woff2 no
+  próprio projeto.
+- Imagens em WebP, com width e height definidos, loading="lazy" nas capturas dos
+  projetos e a foto de perfil em tamanho pequeno (no máximo 300 px).
+- Sem animações pesadas e sem scripts de terceiros.
+- Meta: nota 95 ou mais em Performance e Acessibilidade no Lighthouse (mobile).
 
-## Roteiro (uma etapa por sessão)
-0. Corrigir o estado atual seguindo a ordem do relatório já feito: âncoras/ids → remover <link> morto e criar o tema com @theme → fundo → títulos e footer → card de flip.
-1. Layout geral da variação escolhida.
-2. Hero/cabeçalho: nome, cargo, badge "Disponível para vagas", botão de currículo, navegação e links sociais.
-3. Seções Sobre e Skills.
-4. Cards de projeto (Problema / Solução / Destaques técnicos, links para Código, Swagger e Demo, espaço para GIF).
-5. Seção "Estudando agora" e Contato.
-6. Responsividade (revisar tudo no celular).
-7. Botão PT/EN com JavaScript.
-8. Publicação: migrar para a Tailwind CLI, publicar no GitHub Pages e revisar links.
+CONTEÚDO
+- Use os textos do design. Onde houver [sua foto], [captura de tela] e
+  [SEU E-MAIL], mantenha um espaço reservado bem visível e não invente conteúdo.
+- LinkedIn: https://linkedin.com/in/bruna-lopes-dev
+- GitHub: https://github.com/Brunlps
 
-## Início de cada sessão
-1. Pergunte em que etapa estou e o que fiz desde a última vez.
-2. Olhe o estado atual do código.
-3. Proponha UMA tarefa pequena para a sessão, com o objetivo claro.
+COMO TRABALHAR
+- Sou iniciante em frontend: faça em etapas pequenas e, ao fim de cada uma,
+  explique em poucas linhas o que mudou e por quê.
+- Antes de começar, liste as etapas que pretende seguir e espere meu ok.
+- No final, entregue um relatório com: arquivos criados ou alterados, como rodar
+  o projeto, como adicionar um item na Stack, como criar um novo tema e o
+  resultado do Lighthouse.
