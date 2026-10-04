@@ -3,66 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- <link rel="stylesheet" href="src/input.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <style type="text/tailwindcss">
-      @theme {
-        --font-sans: "Inter", system-ui, "Segoe UI", sans-serif;
-        --font-mono: "Fira Code", ui-monospace, Consolas, monospace;
-        /* Fundos */
-        --color-fundo: #0f172a;
-        --color-superficie: #1e293b;
-        --color-profundo: #020617;
-
-        /* Texto */
-        --color-titulo: #f8fafc;
-        --color-corpo: #cbd5e1;
-        --color-suave: #94a3b8;
-        --color-sutil: #64748b;
-
-        /* Bordas */
-        --color-borda: #1e293b;
-        --color-borda-forte: #334155;
-
-        /* Destaque (verde esmeralda) */
-        --color-destaque: #10b981;
-        --color-destaque-hover: #34d399;
-        --color-destaque-claro: #6ee7b7;
-      }
-      /* 4. Estilos base: valem para o site inteiro */
-      @layer base {
-        html {
-          scroll-behavior: smooth; /* rolagem suave nos links do menu */
-          scrollbar-color: #1e293b #0f172a; /* barra de rolagem escura (cor da barra, cor do trilho) */
-        }
-
-        body {
-          @apply bg-fundo text-corpo font-sans antialiased;
-        }
-
-        h1,
-        h2,
-        h3 {
-          @apply text-titulo;
-        }
-
-        ::selection {
-          @apply bg-destaque text-profundo; /* texto selecionado com o mouse */
-        }
-
-        a:focus-visible,
-        button:focus-visible {
-          @apply outline-2 outline-offset-2 outline-destaque; /* foco visível para quem navega pelo teclado */
-        }
-      }
-    </style>
+    <!-- CSS gerado pelo Tailwind (npm run dev / npm run build) -->
+    <link rel="stylesheet" href="dist/output.css" />
+    <script src="js/main.js" defer></script>
     <title>Bruna | Portfólio</title>
   </head>
   <body class="md:flex bg-fundo">
